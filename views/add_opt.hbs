@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Amazon FavIcon -->
+  <link rel="icon" href="images/img/amazon_favicon.ico" image="image/gif" size="16x16">
+  <!-- Bootstrap CSS
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+<link href="../lib/css/simple_cart.css" rel="stylesheet">
+<link href="../lib/css/bootstrap-v3.3.6.min.css" rel="stylesheets">
+  <!-- Font Awesome CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <!-- Bootstrap CSS Local -->
+  <link rel="stylesheet" href="../stylesheets/css/bootstrap.min.css">
+  <!-- Drawer CSS File -->
+  <link rel="stylesheet" href="../stylesheets/css/bootstrap-drawer.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../stylesheets/css/custom.css">
+  <title>Addisu -G</title>
+   <link rel="stylesheet" type="text/css" href="../simple/style.css">
+   <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../cropper/css/cropper.css">
+    <style>
+    .label {
+      cursor: pointer;
+    }
+
+    .progress {
+      display: none;
+      margin-bottom: 1rem;
+    }
+
+    .alert {
+      display: block;
+    }
+
+    .img-container img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar Starts -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <!-- Drawer Start -->
+    <button class="btn btn-outline-light" data-toggle="drawer" data-target="#amazonDrawer">
+      <i class="fas fa-sliders-h"></i>
+    </button>
+
+    <div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title"
+      aria-hidden="true" id="amazonDrawer">
+      <div class="drawer-content drawer-content-scrollable" role="document">
+        <div class="drawer-header bg-dark text-white">
+          <h4 class="drawer-title mx-auto" id="drawer-demo-title">
+            <i class="fas fa-user-circle"></i>
+            Hello, Sign In
+          </h4>
+        </div>
+        <div class="drawer-body">
+          <h6 class="text-muted text-uppercase">Help & Settings</h6>
+          <a href="your_account.html" class="btn btn-outline-success my-2 btn-sm">You Account</a>
+          <a href="/signin" class="btn btn-warning my-2  btn-sm">Sign in</a>
+        </div>
+        <div class="drawer-footer">
+          <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="drawer" aria-label="Close">
+            <i class="fas fa-2x fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div> <!-- Drawer Ends -->
+    <button class="btn btn-outline-light" data-toggle="drawer" data-target="#addiscart">
+      <i class="fas fa-sliders-h"></i>
+    </button>
+<div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="cart"
+      aria-hidden="true" id="addiscart">
+      <div class="drawer-content drawer-content-scrollable" role="document">
+      
+        <div class="drawer-body">
+           <div class="col-md-3">
+                        <div id="cart"></div>
+                    </div>
+        </div>
+        <div class="drawer-footer">
+          <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="drawer" aria-label="Close">
+            <i class="fas fa-2x fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div> <!-- Drawer Ends -->
+    <a class="navbar-brand pl-2" href="navbar.html">
+      <img src="../images/img/logo.png" height="30" width="100" alt="Addisu logo white">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Search Bar Starts -->
+      <form class="form-inline px-lg-5" novalidate method="get">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" name="btnCategory" type="button"
+                id="btnCategoryDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnCategoryDropdownMenu">
+                <a class="dropdown-item" href="#">All</a>
+                <a class="dropdown-item" href="#">Smartphone</a>
+                <a class="dropdown-item" href="#">Kitchen Hardware</a>
+                <a class="dropdown-item" href="#">Prime Deals</a>
+                <a class="dropdown-item" href="#">Book</a>
+              </div>
+            </div>
+          </div>
+          <input type="text" class="form-control" size="50" name="query" id="query">
+          <input type="text" name="category" id="category" value="book" hidden>
+          <input type="text" name="itx" id="itx" value={{this.tid}} hidden>
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-warning">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form> <!-- Search Bar Ends -->
+      <ul class="navbar-nav">
+        <!-- Preffered Language Starts -->
+        <li class="nav-item dropdown px-2">
+          <a class="nav-link" href="#" id="prefLanguageDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-2x fa-language"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="prefLanguageDropdown">
+            <form class="p-3">
+              <div class="dropdown-divider"></div>
+              <div class="custom-control custom-radio mb-2">
+                <input class="custom-control-input" type="radio" name="prefLang" id="englishLang" value="english"
+                  checked>
+                <label class="custom-control-label" for="englishLang">
+                  <img src="../images/img/flag/english.svg" alt="uk flag" width="50" height="30">
+                </label>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="custom-control custom-radio mb-2">
+                <input class="custom-control-input" type="radio" name="prefLang" id="hindiLang" value="hindi" checked>
+                <label class="custom-control-label" for="hindiLang">
+                  <img src="../images/img/flag/hindi.svg" alt="uk flag" width="50" height="30">
+                </label>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="custom-control custom-radio mb-2">
+                <input class="custom-control-input" type="radio" name="prefLang" id="urduLang" value="urdu" checked>
+                <label class="custom-control-label" for="urduLang">
+                  <img src="../images/img/flag/urdu.svg" alt="uk flag" width="50" height="30">
+                </label>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" name="prefLang" id="banglaLang" value="bangla" checked>
+                <label class="custom-control-label" for="banglaLang">
+                  <img src="../images/img/flag/bangla.svg" alt="uk flag" width="50" height="30">
+                </label>
+              </div>
+              <div class="dropdown-divider"></div>
+            </form>
+          </div>
+        </li> <!-- Preffered Language Ends -->
+        <!-- User Account Starts -->
+        <li class="nav-item dropdown px-2">
+          <a class="nav-link" href="/signin" id="userAccount" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            
+    
+           <i class="fas fa-2x text-light fa-shopping-cart"> </i>
+
+           
+              <span style="vertical-align: top;" class="badge badge-warning badge-pill total-cart-count"></span>
+         
+            
+          </a>
+          <div class="dropdown-menu px-3" aria-labelledby="userAccount">
+            <div class="col-md-3">
+                        <div id="show-cart" style="background-color: #fff;" class="cart-grid panel panel-defaults"></div>
+                    </div>
+          </div>
+        </li> <!-- User Account Ends -->
+        <!-- Shopping Cart Starts -->
+        <li class="nav-item px-2">
+          <a class="nav-link" href="#" aria-disabled=" true">
+            <i class="fas fa-2x text-light fa-user"></i>
+            <span class="badge badge-warning badge-pill ">0</span>
+          </a>
+        </li> <!-- Shopping Cart Starts -->
+      </ul>
+    </div>
+  </nav> <!-- Navbar Ends -->
+
+
+  <div class="container my-5">
+     <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-transparent ml-n3">
+        <li class="breadcrumb-item"><a href="#">Your Seller Brand</a></li>
+        <li class="breadcrumb-item active text-danger" aria-current="page">{{this.prnm}}</li>
+      </ol>
+    </nav>
+    <!-- Top Page Design Starts -->
+    <div class="row">
+      <!-- Image Select Button starts  -->
+      
+
+      <!-- Product Image Starts -->
+      <div class="col-md-3" style="max-width: unset;" >
+        <div class="showx" href="1.jpg">
+          
+      <div class="col"  style="padding: unset;">
+          <div class="form-group">
+           
+   
+    <label class="label" style="padding-bottom: 0.5rem;" data-toggle="tooltip" title="Primary product photo">
+      <img class="rounded" id="avatar" src="../images/imgthumb.jpg" height="375" width="375" alt="Primary product photo">
+      <input type="file" style="display: none;" class="sr-only" id="input" name="image" accept="image/*">
+    </label>
+    <div class="progress" style="width: 5rem;">
+      <div  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    <div class="alert" role="alert"></div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image" src="../images/imgthumb.jpg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          </div>
+          </div>
+     </div>
+
+     <!-- Secondary carousel image thumbnail gallery -->
+
+     <div class="small-img">
+      <img src="../simple/images/1.png" class="icon-left" alt="" id="prev-img">
+        <div class="row" style="flex-wrap: nowrap;">
+            <div class="col"  style="padding: unset;">
+          <div class="form-group">
+         
+   
+    <label class="label" style="padding-bottom: 0.5rem;" data-toggle="tooltip" title="Add photo#1">
+      <img class="rounded" id="avatar1" src="../images/imgthumb.jpg" height="80" width="80" alt="Product photo#1">
+      <input type="file" style="display: none;" class="sr-only" id="input1" name="image1" accept="image/*">
+    </label>
+    <div class="progress" style="width: 5rem;">
+      <div  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    <div class="alert1" role="alert"></div>
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image1" src="../images/imgthumb.jpg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop1">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+          </div>
+          </div>
+           <div class="col" style="padding: unset;">
+          <div class="form-group">
+            
+   
+    <label class="label" style="padding-bottom: 0.5rem;" data-toggle="tooltip" title="Add photo#2">
+      <img class="rounded" id="avatar2" src="../images/imgthumb.jpg" height="80" width="80" alt="Product photo#2">
+      <input type="file" style="display: none;" class="sr-only" id="input2" name="image2" accept="image/*">
+    </label>
+    <div class="progress" style="width: 5rem;">
+      <div  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    <div class="alert2" role="alert"></div>
+    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image2" src="../images/imgthumb.jpg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop2">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          </div>
+          </div>
+           <div class="col"  style="padding: unset;">
+          <div class="form-group">
+       
+   
+    <label class="label" style="padding-bottom: 0.5rem;" data-toggle="tooltip" title="Add photo#3">
+      <img class="rounded" id="avatar3" src="../images/imgthumb.jpg" height="80" width="80" alt="Product photo#3">
+      <input type="file" style="display: none;" class="sr-only" id="input3" name="image3" accept="image/*">
+    </label>
+    <div class="progress" style="width: 5rem;">
+      <div  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    <div class="alert3" role="alert"></div>
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image3" src="../images/imgthumb.jpg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop3">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          </div>
+          </div>
+           <div class="col"  style="padding: unset;">
+          <div class="form-group">
+           
+   
+    <label class="label" style="padding-bottom: 0.5rem;" data-toggle="tooltip" title="Add photo#4">
+      <img class="rounded" id="avatar4" src="../images/imgthumb.jpg" height="80" width="80" alt="Product photo#4">
+      <input type="file" style="display: none;" class="sr-only" id="input4" name="image4" accept="image/*">
+    </label>
+    <div class="progress" style="width: 5rem;">
+      <div  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    <div class="alert4" role="alert"></div>
+    <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image4" src="../images/imgthumb.jpg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop4">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          </div>
+          </div>
+</div>
+      <img src="../simple/images/next-icon.png" class="icon-right" alt="" id="next-img">
+     </div>
+        
+      </div> <!-- Product Image Ends -->
+
+      <!-- Product Details Starts -->
+      <div class="col-md-4">
+        <h6 class="font-weight-bold"><div class="item-name" >{{this.prnm}}</div></h6>
+        <p>
+           {{#if rtr}}
+          {{#each rtr}}
+          <i class="fas fa-star" style="color: #ffa41c;"></i>
+          
+          {{/each}}{{/if}}
+          {{#if trt}}
+          {{#each trt}}
+          <i class="far fa-star" style="color: #ffa41c;"></i>
+          
+          {{/each}}{{/if}}
+         
+         
+        </p>
+
+        <div class="dropdown-divider mt-3"></div>
+        <p class="mb-0">
+          <span class="text-muted mr-2">Price:</span>
+          <span class="text-danger font-weight-bold"><i class="fas fa-euro-sign"></i> {{this.price}}
+          {{#if prd}}
+          <div class="item-price">4000</div>{{/if}} 
+          </span>
+        </p>
+        <p>
+         <div class="mb-3 row">
+                        <label for="html5-color-input" class="col-md-2 col-form-label">Color:</label>
+                        <div class="col-sm-4">
+                          <input class="form-control" type="color" value="{{this.color}}" id="html5-color-input">
+                        </div>
+                      </div>
+        </p>
+
+        <!-- Delivery Quality Images starts -->
+        <div class="row" style="font-size: 12px; font-weight: bold;">
+          <div class="col-md-3">
+            <img src="/images/img/product_main/delivery01.svg" width="35" height="35" class="rounded" alt="" srcset="">
+            <br>
+            <a href="#">No contact delivery</a>
+          </div>
+          <div class="col-md-3">
+            <img src="/images/img/product_main/delivery02.svg" width="35" height="35" class="rounded" alt="" srcset="">
+            <br>
+            <a href="#">7 Day Replacement</a>
+          </div>
+          <div class="col-md-3">
+            <img src="../images/img/product_main/delivery03.svg" width="35" height="35" class="rounded" alt="" srcset="">
+            <br>
+            <a href="#">Amazon Delivered</a>
+          </div>
+          <div class="col-md-3">
+            <img src="../images/img/product_main/delivery04.svg" width="35" height="35" class="rounded" alt="" srcset="">
+            <br>
+            <a href="#">1 Year Waranty</a>
+          </div>
+        </div> <!-- Delivery Quality Images ends -->
+{{#if prd}}<div class="col-md-6">
+            <button data-name="{{this.prd.name}}" data-price="{{this.prd.price}}" data-img="{{this.prd.primg}}" class="btn btn-warning btn-sm btn-block mt-3 sc-add-to-cart">
+              <i class="fas fa-cart-plus float-left text-primary" style="font-size: 25px;"></i>
+             save item
+            </button></div>{{/if}}
+        <div class="dropdown-divider mt-3"></div>
+
+        <p class="text-success font-weight-bold">In stock.</p>
+        <p>Sold by:
+          <a href="#">ABC Seller</a>
+        </p>
+
+        <!-- Product Description Starts -->
+        <ul class="ml-n3 spc">
+         
+         
+        </ul> <!-- Product Description Ends -->
+<div class="col-md-6 " style="margin-left: -2em;">
+            <button  class="btn btn-warning btn-sm btn-block mt-3 sc-add-to-cart adsp">
+              <i class="fas fa-plus float-left text-primary" style="font-size: 25px;"></i>
+              Add Spec
+            </button></div>
+      </div> <!-- Product Details Starts -->
+
+      <!-- Add Product Card starts -->
+      <div class="col-md-4 text-center" style="margin-left: -5em;">
+
+        <!-- Card starts -->
+        <div class="card shadow rounded float-md-right" >
+          <div class="card-body">
+            
+            <div class="form-group">
+              <label for="quantity">Set quantity:</label>
+              <input type="number"  class="form-control form-control-sm d-inline ml-2" style="width: 50px;" value="{{this.qty}}"  >
+            </div>
+           
+
+            <p class="mb-0">
+              <span class="text-muted mr-2">Price:</span>
+              <span class="text-danger font-weight-bold"><div class="item-price"><i class="fas fa-euro-sign"></i> <input type="text" size="4" value="{{this.price}}" placeholder="price">/-</div></span>
+            </p>
+
+            <button data-name="{{this.prd.name}}" data-price="{{this.prd.price}}" data-thumb="{{this.prd.primg}}" class="btn btn-warning btn-sm ">
+             
+              Update
+            </button>
+
+            <div class="dropdown-divider"></div>
+            <a href="#">
+              <i class="fas fa-map-marker-alt text-dark"></i>
+              Select Delivery Location
+            </a>
+          </div>
+          
+        </div> <!-- Card ends  -->
+
+
+
+      </div> <!-- Add Product Card ends -->
+    </div> <!-- Top Page Design Ends -->
+
+
+    <div class="row border-bottom border-top">
+      <div class="col-md-12">
+        <p class="text-danger font-weight-bold">Save Extra with 5 offers</p>
+        <ul>
+          <li><span class="text-danger">No Cost EMI:</span> Avail No Cost EMI on select cards for orders above ₹3000
+          </li>
+          <li><span class="text-danger">Exchange Offer:</span> Enter your pincode to view Exchange offer</li>
+          <li><span class="text-danger">Cashback (2):</span> 5% back with Amazon Pay ICICI Bank Credit card for
+            Prime-members. 3% back for everybody else. Here's how </li>
+          <li><span class="text-danger">Bank Offer (2): </span> Get 5% up to Rs. 1500 Instant Discount on Bank of Baroda
+            Credit EMI transactions Here's how</li>
+          <li><span class="text-danger">Partner Offers (3): </span> Buy now & pay next month at 0% interest or pay in
+            EMIs with Amazon Pay Later. Instant credit upto ₹20,000. Check eligibility here! Here's how </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row border-bottom mt-3">
+      <div class="col-md-12 my-3">
+        <h6 class="text-warning font-weight-bold">Product description</h6>
+        <p class="ml-3">{{this.prd.descr}}</p>
+      </div>
+    </div>
+
+
+    <!-- Customer Review starts -->
+    
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <!-- Drawer JS File -->
+  <script src="js/bootstrap-drawer.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="js/custom.js"></script>
+   <script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="../cropper/js/cropper.js"></script>
+  <script src="../javascripts/spc.js"></script>
+ 
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatar');
+        var avatar1 = document.getElementById('avatar1');
+         var avatar2 = document.getElementById('avatar2');
+          var avatar3 = document.getElementById('avatar3');
+           var avatar4 = document.getElementById('avatar4');
+      var image = document.getElementById('image');
+       var image1 = document.getElementById('image1');
+      var image2 = document.getElementById('image2');
+      var image3 = document.getElementById('image3');
+      var image4 = document.getElementById('image4');
+      var input = document.getElementById('input');
+       var input1 = document.getElementById('input1');
+        var input2 = document.getElementById('input2');
+         var input3 = document.getElementById('input3');
+          var input4 = document.getElementById('input4');
+      var $progress = $('.progress');
+      var $progressBar = $('.progress-bar');
+      var $alert = $('.alert');
+      var $alert1 = $('.alert1');
+      var $alert2 = $('.alert2');
+      var $alert3 = $('.alert3');
+      var $alert4 = $('.alert4');
+      var $modal = $('#modal');
+        var $modal1 = $('#modal1');
+        var $modal2 = $('#modal2');
+        var $modal3 = $('#modal3');
+        var $modal4 = $('#modal4');
+        var pidx= $('#itx').val();
+      var cropper;
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+      input.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+          input.value = '';
+          image.src = url;
+          $alert.hide();
+          $modal.modal('show');
+        };
+        
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+ input1.addEventListener('change', function (e) {
+        var files = e.target.files;
+        
+         var done = function (url) {
+          input1.value = '';
+          image1.src = url;
+          $alert1.hide();
+          $modal1.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+        
+      });
+      input2.addEventListener('change', function (e) {
+        var files = e.target.files;
+        
+         var done = function (url) {
+          input2.value = '';
+          image2.src = url;
+          $alert2.hide();
+          $modal2.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+        
+      });
+      input3.addEventListener('change', function (e) {
+        var files = e.target.files;
+        
+         var done = function (url) {
+          input3.value = '';
+          image3.src = url;
+          $alert3.hide();
+          $modal3.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+        
+      });
+      input4.addEventListener('change', function (e) {
+        var files = e.target.files;
+        
+         var done = function (url) {
+          input4.value = '';
+          image4.src = url;
+          $alert4.hide();
+          $modal4.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+        
+      });
+      $modal.on('shown.bs.modal', function () {
+        cropper = new Cropper(image, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+ $modal1.on('shown.bs.modal', function () {
+        cropper = new Cropper(image1, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+      $modal2.on('shown.bs.modal', function () {
+        cropper = new Cropper(image2, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+      $modal3.on('shown.bs.modal', function () {
+        cropper = new Cropper(image3, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+      $modal4.on('shown.bs.modal', function () {
+        cropper = new Cropper(image4, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+      document.getElementById('crop').addEventListener('click', function () {
+        var initialAvatarURL;
+
+        $modal.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 375,
+            height: 375,
+           
+          });
+          initialAvatarURL = avatar.src;
+          avatar.src = canvas.toDataURL();
+          $progress.show();
+         // $alert.removeClass('alert-success alert-warning');
+         canvas.toBlob(function (blob) {
+            var formData = new FormData();
+            //formData.append(pidx:pidx)
+
+           // formData.append('avatar', blob, 'avatar.jpg');
+            formData.append('image',blob,'image');
+             formData.append('pidx', pidx);
+              formData.append('opn', '0');
+            $.ajax('http://localhost:3001/process/image', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+                $alert.show().addClass('alert-success').text('Success');
+              },
+
+              error: function () {
+                //avatar.src = initialAvatarURL;
+                //$alert.show().addClass('alert-warning').text('Upload error');
+              },
+
+              complete: function () {
+                $progress.hide();
+              },
+            
+          });
+         });
+        }
+      });
+       document.getElementById('crop1').addEventListener('click', function () {
+        var initialAvatarURL1;
+        var canvas;
+
+        $modal1.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 80,
+            height: 80,
+          });
+          initialAvatarURL1 = avatar1.src;
+          avatar1.src = canvas.toDataURL();
+         // $progress.show();
+          $alert1.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+
+           // formData.append('avatar', blob, 'avatar.jpg');
+            formData.append('image',blob,'image');
+             formData.append('pidx', pidx);
+              formData.append('opn', '1');
+            $.ajax('http://localhost:3001/process/image', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+                $alert1.show().addClass('alert-success').text('Success');
+              },
+
+              error: function () {
+                //avatar1.src = initialAvatarURL1;
+                $alert1.show().addClass('alert-warning').text('Error');
+              },
+
+              complete: function () {
+                //$progress1.hide();
+              },
+            });
+          });
+        }
+      });
+      document.getElementById('crop2').addEventListener('click', function () {
+        var initialAvatarURL2;
+        var canvas;
+
+        $modal2.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 80,
+            height: 80,
+          });
+          initialAvatarURL2 = avatar2.src;
+          avatar2.src = canvas.toDataURL();
+         // $progress.show();
+          $alert2.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+
+           // formData.append('avatar', blob, 'avatar.jpg');
+            formData.append('image',blob,'image');
+             formData.append('pidx', pidx);
+              formData.append('opn', '2');
+            $.ajax('http://localhost:3001/process/image', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+                $alert2.show().addClass('alert-success').text('Success');
+              },
+
+              error: function () {
+                //avatar1.src = initialAvatarURL1;
+                $alert2.show().addClass('alert-warning').text('Error');
+              },
+
+              complete: function () {
+                //$progress2.hide();
+              },
+            });
+          });
+        }
+      });
+       document.getElementById('crop3').addEventListener('click', function () {
+        var initialAvatarURL3;
+        var canvas;
+
+        $modal3.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 80,
+            height: 80,
+          });
+          initialAvatarURL3 = avatar3.src;
+          avatar3.src = canvas.toDataURL();
+         // $progress.show();
+         // $alert.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+
+           // formData.append('avatar', blob, 'avatar.jpg');
+            formData.append('image',blob,'image');
+             formData.append('pidx', pidx);
+              formData.append('opn', '3');
+            $.ajax('http://localhost:3001/process/image', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+                $alert3.show().addClass('alert-success').text('Success');
+              },
+
+              error: function () {
+                //avatar3.src = initialAvatarURL2;
+                $alert3.show().addClass('alert-warning').text('Error');
+              },
+
+              complete: function () {
+                //$progress2.hide();
+              },
+            });
+          });
+        }
+      });
+       document.getElementById('crop4').addEventListener('click', function () {
+        var initialAvatarURL4;
+        var canvas;
+
+        $modal4.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 80,
+            height: 80,
+          });
+          initialAvatarURL4 = avatar4.src;
+          avatar4.src = canvas.toDataURL();
+         // $progress.show();
+         // $alert.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+
+           // formData.append('avatar', blob, 'avatar.jpg');
+            formData.append('image',blob,'image');
+             formData.append('pidx', pidx);
+              formData.append('opn', '4');
+            $.ajax('http://localhost:3001/process/image', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+                $alert4.show().addClass('alert-success').text('Success');
+              },
+
+              error: function () {
+                //avatar4.src = initialAvatarURL4;
+                $alert4.show().addClass('alert-warning').text('Error');
+              },
+
+              complete: function () {
+                //$progress4.hide();
+              },
+            });
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
